@@ -1,0 +1,241 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load staticfiles %}
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="author" content=""/>
+    <meta name="navigaton_title" content=""/>
+    <meta name="dcterms.publisher" content="Province of British Columbia"/>
+    <meta name="dcterms.created" content="2015-06-05"/>
+    <meta name="dcterms.modified" content="2016-12-30"/>
+    <meta name="security_label" content="Public"/>
+    <meta name="security_classification" content="Low"/>
+    <meta name="dcterms.subject" content=""/>
+    <meta name="dcterms.subject" content=""/>
+    <meta name="dcterms.creator" content=""/>
+    <meta name="dcsext.creator" content=""/>
+    <meta name="dcterms.language" content="eng"/>
+    <meta name="description" content=""/>
+    <meta name="keywords" content="">
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static 'icons/apple-icon-57x57.png'%}"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static 'icons/apple-icon-60x60.png'%}"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'icons/apple-icon-72x72.png'%}"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static 'icons/apple-icon-76x76.png'%}"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'icons/apple-icon-114x114.png'%}"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'icons/apple-icon-120x120.png'%}"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static 'icons/apple-icon-144x144.png'%}"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static 'icons/apple-icon-152x152.png'%}"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'icons/apple-icon-180x180.png'%}"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="{% static 'icons/android-icon-192x192.png'%}"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'icons/favicon-32x32.png'%}"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="{% static 'icons/favicon-96x96.png'%}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'icons/favicon-16x16.png'%}"/>
+    <link rel="manifest" href="icons/manifest.json"/>
+    <link rel="icon" type="image/png" href="images/favicon.ico"/>
+    <meta name="msapplication-TileColor" content="#ffffff"/>
+    <meta name="msapplication-TileImage" content="{% static 'icons/ms-icon-144x144.png' %}"/>
+    <meta name="theme-color" content="#ffffff"/>
+
+
+
+    <title>BC WebCheck</title>
+
+
+        <!-- BOOTSTRAP CORE CSS v3.3.6 -->
+    <link rel="stylesheet" href="{%  static 'css/bootstrap.min.css' %}"/>
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" href="{%  static 'css/ie10-viewport-bug-workaround.css' %}"/>
+
+    <!-- STANDARD CSS -->
+    <link type="text/css" href="{%  static 'css/main.css' %}" rel="stylesheet"/>
+
+    <!-- FONTS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+
+    <!-- CUSTOM CSS -->
+    <link href="{%  static 'css/custom-main.css' %}" rel="stylesheet"/>
+    <link href="{%  static 'css/custom-form.css' %}" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header" role="banner">
+        <div id="header-main" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div id="header-main-row" class="row">
+                    <!-- GOV & ENV TITLE -->
+                    <div class="col-sm-3 col-md-2 col-lg-2 header-main-left">
+                        <div id="logo">
+                            <a href="http://gov.bc.ca"><img src="{%  static 'images/gov3_bc_logo.png' %}" alt="Government of B.C." title="Government of B.C. logo" /></a>
+                        </div>
+                        <div id="access">
+                            <ul>
+                                <li aria-label="Keyboard Tab Skip">
+                                    <a accesskey="0" href="#main-content-anchor" aria-label="Skip to main content">Skip to main content</a>
+                                </li>
+                                <li aria-label="Keyboard Tab Skip">
+                                    <a accesskey="0" href="#navigation-anchor" aria-label="Skip to navigation" aria-label="Skip to navigation">Skip to navigation</a>
+                                </li>
+                                <li aria-label="Keyboard Tab Skip">
+                                    <a accesskey="0" href="http://gov.bc.ca/webaccessibility/" aria-label="Accessibility Statement">Accessibility Statement</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <button type="button" class="navbar-toggle gov-button-custom collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-label="Burger Navigation">
+                            <img src="{%  static 'images/menu-open-mobile.png' %}" />
+                        </button>
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-6 hidden-xs">
+                        <div class="bcgov-title">
+                            <h1>Government of B.C.</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    // if there is no level 3 navigation, do not display the blue arrow for the current level 2 nav item
+    if($(".level3Navigation a").length == 0) {
+        $(".level2Navigation a.current").css("background-image", "none");
+    }
+</script>
+    <!-- /HEADER -->
+    <!-- BODY CONTENT -->
+    <div id="topicTemplate" class="template container gov-container">
+
+
+        <!-- SITE SECONDARY NAVIGATION -->
+        <div class="row">
+            <!-- googleoff:all -->
+            <a id="navigation-anchor"></a>
+
+            <!-- googleon:all -->
+            <a id="main-content-anchor"></a>
+            <div id="main-content" role="main" style = "margin-left: 300px" >
+                <p> <h2>Results for --->  <b> <a href="{{ word }}"> {{entity.name }} </a></b></h2> <br>
+                    Site status: <b>{%  autoescape off %}{{ entity.status }}{%  endautoescape %}</b><br>
+                    Registered to: <b>{% autoescape off %}{{ entity.owner.0 }} {% endautoescape %}</b><a href='#!' style="text-decoration: none;" data-toggle="collapse" data-target="#whois"> (click to see more details) </a>
+                    <div id="whois" class="collapse" style="margin-left: 85px">
+                    <div class="well well-sm">
+                        {%  autoescape off %}
+                        {% for string in entity.owner|slice:"1:" %}
+                           {{ string }}<br>
+                        {% endfor %}
+                        {% endautoescape %}
+                    </div></div><br>
+                    IP Address: <b>{{ entity.IPaddr }} </b><br>
+                    Certificate validity: <b>{{ entity.validity }}</b><br>
+                    Certificate expiry: <b>{{ entity.expiry }}</b><br>
+                    Expires in: <b>{{ entity.expiryDays }} days</b><br>
+                    Protocols Supported: <b>{{ entity.protocols }} </b><br>
+
+
+
+
+                    CipherSuites Supported : <b>{{ entity.cipherSuites | length }} </b><a href='#!' style="text-decoration: none" data-toggle="collapse" data-target="#cipherList"> (click to expand) </a>
+                    <div id="cipherList" class="collapse">
+                    <div class="well well-sm">
+                        {% for cipher in entity.cipherSuites %}
+                            <li> {{ cipher }}</li>
+                        {% endfor %}
+                    </div></div><br>
+                    Known Reputation: <b>{{ entity.reputation }} </b><br>
+                    Similar Registered TLDs : <b>{{ entity.TLDs|length }} </b><a href='#!' style="text-decoration: none" data-toggle="collapse" data-target="#TLD"> (click to expand) </a>
+                     <div id="TLD" class="collapse">
+                        {% for link in entity.TLDs %}
+                            <li style="margin-left: 135px"><a href="http://{{ link }}"> {{ link }} </a></li>
+                        {% endfor %}
+                    </div><br>
+
+                    Open Ports : <b>{{ entity.openPorts|length }} </b><a href='#!' style="text-decoration: none" data-toggle="collapse" data-target="#openPorts"> (click to expand) </a>
+                     <div id="openPorts" class="collapse">
+                        {% for ports in entity.openPorts %}
+                            <li style="margin-left: 60px"> {% autoescape off %}{{ ports }}{%  endautoescape %} </li>
+                        {% endfor %}
+                    </div><br>
+                    Heartbeat Vulnerability: <b>{{ entity.heartbeat }} </b><br>
+                    Poodle Vulnerability: <b>{{ entity.poodle }} </b><br>
+
+                </p>
+                <p><a href="/"> Go Back</a> </p>
+            <br><br><br> <p> The scan took <b>{{ time }} </b> seconds</p>
+            </div>
+        </div>
+        <!-- PAGE CONTENT -->
+    </div>
+    <!-- /BODY CONTENT -->
+    <div id="shareIcons">
+
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer" role ="contentinfo">
+        <img class="back-to-top" src="{%  static 'images/back-to-top.png' %}" alt="Back to top" title="Back to top" style="display: inline;">
+        <div id="footerWrapper">
+            <div id="footerAdminSection">
+                <div id="footerAdminLinksContainer" class="container">
+                    <div id="footerAdminLinks" class="row">
+                        <ul class="inline">
+                            <li>
+                                <a href="#" target="_self">Home</a>
+                            </li>
+                            <li>
+                                <a href="#" target="_self">About this site</a>
+                            </li>
+                            <li>
+                                <a href="http://gov.bc.ca/disclaimer/" target="_self">Disclaimer</a>
+                            </li>
+                            <li>
+                                <a href="http://gov.bc.ca/privacy/" target="_self">Privacy</a>
+                            </li>
+                            <li>
+                                <a href="http://gov.bc.ca/webaccessibility/" target="_self">Accessibility</a>
+                            </li>
+                            <li>
+                                <a href="http://gov.bc.ca/copyright" target="_self">Copyright</a>
+                            </li>
+                            <li>
+                                <a href="#" target="_self">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /FOOTER -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{%  static 'js/bootstrap.min.js' %}"></script>
+    <script src="{%  static 'js/misc.js' %}"></script>
+    <script src="{%  static 'js/navMenu.js' %}"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="{%  static 'js/ie10-viewport-bug-workaround.js' %}"></script>
+
+
+</body>
+
+</html>
