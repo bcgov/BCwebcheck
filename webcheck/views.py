@@ -21,6 +21,7 @@ import whois
 from webcheck.models import URLForm
 
 
+
 class Entity():
     def __init__(self, name, status, validity, expiry, expiryDays, protocols, cipherSuites, reputation, TLDs, openPorts, IPaddr, owner, heartbeat, poodle):
         self.name = name
@@ -130,22 +131,22 @@ def results(request):
                     if i.__contains__("Protocol"):
                         continue
                     else:
-                        protocols.append('SSL3 ')
+                        protocols.append('<font color ="#FF0000"> SSL3 </font>')
                 if i.__contains__('TLSv10'):
                     if i.__contains__("Protocol"):
                         continue
                     else:
-                        protocols.append('TLS1.0 ')
+                        protocols.append('<font color ="#FF0000">TLS1.0 </font>')
                 if i.__contains__('TLSv11'):
                     if i.__contains__("Protocol"):
                         continue
                     else:
-                        protocols.append('TLS1.1 ')
+                        protocols.append('<font color ="#FF0000"> TLS1.1</font> ')
                 if i.__contains__('TLSv12'):
                     if i.__contains__("Protocol"):
                         continue
                     else:
-                        protocols.append('TLS1.2 ')
+                        protocols.append('<font color ="#008000">TLS1.2 </font>')
         except:
             protocols = 'Could Not Fetch'
 
@@ -181,9 +182,9 @@ def results(request):
             r = re.compile('^.*' + hostname + '.*$')
             newList = list(filter(r.match, website_list))
             if len(newList) !=0:
-                reputation = 'Malicious'
+                reputation = 'Believed to be unsafe'
             else:
-                reputation = 'Safe'
+                reputation = 'Believed to be safe'
         except:
             reputation = 'Could not fetch'
         return reputation
@@ -203,7 +204,12 @@ def results(request):
                         link = 'http://' + res.domain + '.' + domain
                         r = requests.get(link, headers=headers, allow_redirects=False, timeout = 5)
                         if(r.status_code>=200 or r.status_code<=399):
-                            websites.append(link.replace('http://', ''))
+                            if(checkReputation(link)=='Believed to be safe'):
+                                websites.append('<a href=' + link + '><font color = "#008000">' + link.replace('http://', '') + '</font></a>')
+                                continue
+                            elif(checkReputation(link)=='Believed to be unsafe'):
+                                websites.append('<a href=' + link + '><font color = "#FF0000">' + link.replace('http://', '') + '</font></a>')
+                                continue
                         else:
                             continue
                     except:
@@ -230,10 +236,9 @@ def results(request):
                         for port in lport:
                             result.append('Port:<b> ' + str(port) + ' </b> State: <b>' + nm[host][proto][port]['state'] + '</b>' )
             except:
-                print()
+                result.append('Error in nmap')
         except:
-            print()
-
+            result.append('Error in resolving url')
         return result
 
     def findIPaddr(url):
@@ -275,7 +280,6 @@ def results(request):
                 result.append('Updated Date:<b>' + str(d.updated_date) + '</b>')
             if(d.creation_date):
                 result.append('Creation Date:<b> ' + str(d.creation_date)+ '</b>')
-
             if(d.expiration_date):
                 result.append('Expiration Date:<b> ' + str(d.expiration_date)+ '</b>')
         except:
@@ -311,7 +315,7 @@ def results(request):
         result = ''
         try:
             protocols = findSupportedProtocols(url)
-            if(protocols.__contains__('SSL3')):
+            if(protocols.__contains__('SSL3') or protocols.__contains__('TLS1.0')):
                 result = 'Yes'
             else:
                 result = 'No'
