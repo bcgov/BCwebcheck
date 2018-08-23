@@ -132,7 +132,7 @@
             <div id="main-content" role="main" style = "margin-left: 300px" >
                 <p> <h2>Results for --->  <b> <a href="{{ word }}"> {{entity.name }} </a></b></h2> <br>
                     Site status: <b>{%  autoescape off %}{{ entity.status }}{%  endautoescape %}</b><br>
-                    Registered to: <b>{% autoescape off %}{{ entity.owner.0 }} {% endautoescape %}</b><a href='#!' style="text-decoration: none;" data-toggle="collapse" data-target="#whois"> (click to see more details) </a>
+                    Domain registered to: <b>{% autoescape off %}{{ entity.owner.0 }} {% endautoescape %}</b><a href='#!' style="text-decoration: none;" data-toggle="collapse" data-target="#whois"> (click to see more details) </a>
                     <div id="whois" class="collapse" style="margin-left: 85px">
                     <div class="well well-sm">
                         {%  autoescape off %}
@@ -145,7 +145,7 @@
                     Certificate validity: <b>{{ entity.validity }}</b><br>
                     Certificate expiry: <b>{{ entity.expiry }}</b><br>
                     Expires in: <b>{{ entity.expiryDays }} days</b><br>
-                    Protocols Supported: <b>{{ entity.protocols }} </b><br>
+                    Protocols Supported: <b> {%  autoescape off %}{{ entity.protocols }} {% endautoescape %} </b><br>
 
 
 
@@ -160,9 +160,11 @@
                     Known Reputation: <b>{{ entity.reputation }} </b><br>
                     Similar Registered TLDs : <b>{{ entity.TLDs|length }} </b><a href='#!' style="text-decoration: none" data-toggle="collapse" data-target="#TLD"> (click to expand) </a>
                      <div id="TLD" class="collapse">
+                     {%  autoescape off %}
                         {% for link in entity.TLDs %}
-                            <li style="margin-left: 135px"><a href="http://{{ link }}"> {{ link }} </a></li>
+                            <li style="margin-left: 135px"> {{ link }}</li>
                         {% endfor %}
+                     {% endautoescape %}
                     </div><br>
 
                     Open Ports : <b>{{ entity.openPorts|length }} </b><a href='#!' style="text-decoration: none" data-toggle="collapse" data-target="#openPorts"> (click to expand) </a>
@@ -171,7 +173,7 @@
                             <li style="margin-left: 60px"> {% autoescape off %}{{ ports }}{%  endautoescape %} </li>
                         {% endfor %}
                     </div><br>
-                    Heartbeat Vulnerability: <b>{{ entity.heartbeat }} </b><br>
+                    Heartbleed Vulnerability: <b>{{ entity.heartbeat }} </b><br>
                     Poodle Vulnerability: <b>{{ entity.poodle }} </b><br>
 
                 </p>
